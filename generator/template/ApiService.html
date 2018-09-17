@@ -1,0 +1,26 @@
+package com.zhangchu.provider.{{ business }}.api;
+
+import com.zhangchu.provider.{{ business }}.entity.{{ model_name }};
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+{% include 'class_annotation.html' %}
+@RequestMapping("/api/{{ api }}/")
+public interface {{ model_name }}ApiService {
+
+    @RequestMapping("save")
+    {{ model_name }} save({{ model_name }} {{ model_name | lowercase }});
+
+    @RequestMapping("delete")
+    Integer delete({{ model_name }} {{ model_name | lowercase }});
+
+    @RequestMapping("update")
+    {{ model_name }} update({{ model_name }} {{ model_name | lowercase }});
+
+    @RequestMapping("getById")
+    {{ model_name }} getById(@RequestParam(name = "id") String id);
+
+}

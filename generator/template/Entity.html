@@ -1,0 +1,26 @@
+package com.zhangchu.provider.{{ business }}.entity;
+
+import com.baomidou.mybatisplus.annotations.TableName;
+{%- for item in entity_imports %}
+import {{ item }};
+{%- endfor %}
+
+
+{% include 'class_annotation.html' %}
+@TableName("{{ table_name }}")
+public class {{ model_name }} extends {{ entity_parent }} {
+
+    {% for item in attrs %}
+    private {{ item.type }} {{ item.column }};  {{ item.comment }}
+    {% endfor %}
+    {% for item in attrs %}
+    public {{ item.type }} get{{ item.column | uppercase }}() {
+        return {{ item.column }};
+    }
+
+    public void set{{ item.column | uppercase }}({{ item.type }} {{ item.column }}) {
+        this.{{ item.column }} = {{ item.column }};
+    }
+    {% endfor %}
+
+}

@@ -1,0 +1,25 @@
+package com.zhangchu.provider.{{ business }}.service.impl;
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.zhangchu.common.server.service.impl.BaseUserCRUDServiceImpl;
+
+import com.zhangchu.provider.{{ business }}.entity.{{ model_name }};
+import com.zhangchu.provider.{{ business }}.mapper.{{ model_name }}Mapper;
+import com.zhangchu.provider.{{ business }}.service.{{ model_name }}Service;
+
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
+
+{% include 'class_annotation.html' %}
+@Service
+public class {{ model_name }}ServiceImpl extends BaseUserCRUDServiceImpl<{{ model_name }}> implements {{ model_name }}Service {
+
+    @Resource
+    {{ model_name }}Mapper {{ model_name | lowercase  }}Mapper;
+
+    @Override
+    protected BaseMapper<{{ model_name }}> getMapper() {
+        return {{ model_name | lowercase }}Mapper;
+    }
+
+}

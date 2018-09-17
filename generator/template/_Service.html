@@ -1,0 +1,11 @@
+package com.zhangchu.core.cms.{{ business }}.service;
+
+
+import com.zhangchu.provider.{{ business }}.api.ProductRefundApiService;
+import org.springframework.cloud.openfeign.FeignClient;
+
+{% include 'class_annotation.html' %}
+@FeignClient(value = "provider-mall")
+public interface ProductRefundService extends ProductRefundApiService {
+
+}
