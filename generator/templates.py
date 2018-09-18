@@ -20,7 +20,7 @@ class BaseAttr:
 
 
 class Entity(BaseAttr):
-    template = 'entity.html'
+    template = 'Entity.html'
     filename = '.java'
     filepath = 'entity/'
     

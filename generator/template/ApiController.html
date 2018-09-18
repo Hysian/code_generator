@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class {{ model_name }}ApiController extends BaseUserCRUDApiController<{{ model_name }}> {
 
     @Resource
-    {{ model_name }}Service {{ model_name | lowercase }}Service;
+    private {{ model_name }}Service {{ model_name | lowercase }}Service;
 
 
     @Override

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.css') }}">
+    <title>掌触——代码生成器</title>
+
+</head>
+<body>
+<div class="container">
+    <div class="columns ">
+        <div class="column is-half is-offset-one-quarter">
+            <form action="{{ url_for("generator") }}" method="post">
+                <div class="field">
+                    <label class="label">表名</label>
+                    <div class="control">
+                        <input class="input" name="tables" type="text" placeholder="表名全称">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">业务名</label>
+                    <div class="control">
+                        <input class="input" name="business" type="text" placeholder="如mall.order">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">author</label>
+                    <div class="control">
+                        <input class="input" name="author" type="text" placeholder="类注释author">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">数据源</label>
+                    <div class="control">
+                        <input class="input" name="database" type="text" value="saas" readonly>
+                    </div>
+                </div>
+                <div class="field is-pulled-left">
+                    <div class="control ">
+                        <button class="button is-primary ">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="content">
+                <h1>使用说明</h1>
+                <p>该页面功能为掌触科技业务基础代码生成器，非相关人员请勿使用，相关细节用法与建议内部讨论</p>
+                <h3>准备工作</h3>
+                <p>使用前做好以下准备</p>
+                <ul>
+                    <li>设计好数据表字段</li>
+                    <li>确定好业务包名称，即business</li>
+                    <li>在对应数据源中建好相关表</li>
+                </ul>
+                <h3>表单描述</h3>
+                <p>本页面表单数据大致描述</p>
+                <ol>
+                    <li><strong>表名</strong> 即为相关数据表在数据库中的tablename, 可填入一或多个，中间使用“，”逗号分隔 ，务必确认数据表属于同一业务模块</li>
+                    <li><strong>业务名</strong> 即为该model在provider下的业务包名，一层或多层，如hotel, product.order</li>
+                    <li><strong>author</strong> 即类注释当中的author注释</li>
+                    <li><strong>saas</strong> 默认，暂为可读</li>
+                </ol>
+
+                <h3>操作流程</h3>
+                <p>大致使用流程</p>
+                <ul>
+                    <li>输入关键数据并提交</li>
+                    <li>跳转至代码包下载页面</li>
+                    <li>将代码拷贝至工作空间对应目录</li>
+                </ul>
+                <h3>Todo</h3>
+                <p>可以优化补充的工作</p>
+                <ul>
+                    <li>controller、service的继承类自动匹配</li>
+                    <li>基础增删改查的单元测试</li>
+                </ul>
+
+                <h3>相关页面</h3>
+                <p>核心代码github地址，欢迎star&gt;&gt; <a href="https://github.com/Hysian/code_generator" target="_blank">代码生成器</a></p>
+            </div>
+        </div>
+        <div class="column">
+
+        </div>
+    </div>
+
+    {#        <div class="column">#}
+    {#            <label for="table-name">表名：</label>#}
+    {#            <div class="input-wraper">#}
+    {#                <input type="text" id="table-name" placeholder="多个表名请用,分隔">#}
+    {#            </div>#}
+    {#        </div>#}
+
+</div>
+</body>
+</html>
