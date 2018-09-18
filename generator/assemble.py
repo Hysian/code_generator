@@ -27,6 +27,7 @@ class Generator:
     def select_columns(self):
         try:
             self.columns = session.execute(meta_sql(self.data_base, self.table_name)).fetchall()
+            session.close()
         except Exception as e:
             raise ValueError('请确认数据库或表是否存在')
         return self.columns
